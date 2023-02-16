@@ -35,7 +35,38 @@ const teamMembers={
             type:"input",
             message:"Enter the Office Number of the Manager : ",
             name:"officeNumber"
-        },
+        }
 
+    ],
+
+    Engineer:[
+        {
+            type:"input",
+            message:"Enter the Name of the Engineer : ",
+            name:"engineerName"
+        },
+        {
+            type:"input",
+            message:"Enter the ID of the Engineer : ",
+            name:"engineerId"
+        },
+        {
+            type:"input",
+            message:"Enter the email of the Engineer : ",
+            name:"engineerEmail"
+        },
+        {
+            type:"input",
+            message:"Enter Github username of the Engineer : ",
+            name:"Github"
+        },
+    ],
+
+    Intern:[
+        {
+            type:"input",
+            message:"Enter the Name of the Manager : ",
+            name:"managerName"
+        },
     ]
 }
