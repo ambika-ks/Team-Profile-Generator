@@ -13,3 +13,29 @@ const render = require("./src/page-template.js");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
+
+const teamMembers={
+    Manager:[
+        {
+            type:"input",
+            message:"Enter the Name of the Manager : ",
+            name:"managerName"
+        },
+        {
+            type:"input",
+            message:"Enter the ID of the Manager : ",
+            name:"managerId"
+        },
+        {
+            type:"input",
+            message:"Enter the email of the Manager : ",
+            name:"managerEmail"
+        },
+        {
+            type:"input",
+            message:"Enter the Office Number of the Manager : ",
+            name:"officeNumber"
+        },
+
+    ]
+}
