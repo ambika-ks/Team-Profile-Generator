@@ -10,5 +10,4 @@ getId(){return this,this.name}
 getEmail(){return this,this.name}
 getRole(){return this,this.name}
 }
-
 module.exports=Employee;
