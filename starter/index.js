@@ -65,8 +65,26 @@ const teamMembers={
     Intern:[
         {
             type:"input",
-            message:"Enter the Name of the Manager : ",
-            name:"managerName"
+            message:"Enter the Name of the Intern : ",
+            name:"internName"
         },
+        {
+            type:"input",
+            message:"Enter the ID of the Intern : ",
+            name:"internId"
+        },
+        {
+            type:"input",
+            message:"Enter the email of the Intern : ",
+            name:"internEmail"
+        },
+        {
+            type:"input",
+            message:"Enter the School Name of the Intern : ",
+            name:"school"
+        }
     ]
 }
+
+
+
