@@ -1,9 +1,11 @@
+
+// const inquirer = import('inquirer');
+const inquirer=require("inquirer");
+const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
 const path = require("path");
-const fs = require("fs");
 const jest=require("jest");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
@@ -14,7 +16,7 @@ const { ADDRGETNETWORKPARAMS } = require("dns");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
-
+const render=require("./lib/htmlRenderer");
 
 const teamMembers={
     Manager:[
