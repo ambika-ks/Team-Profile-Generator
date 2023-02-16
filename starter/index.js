@@ -4,11 +4,13 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const jest=require("jest");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
+const { ADDRGETNETWORKPARAMS } = require("dns");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
@@ -88,3 +90,63 @@ const teamMembers={
 
 
 
+function start()
+{
+    inquirer.prompt(addNew).then((answer) => {
+        if(answer.addMember == "yes"){
+            addRole();
+        }
+        else{
+            fs.writeFileSync(outputPath,render(Team),"utf-8");
+            process.exit(0);
+        }
+    })
+}
+
+
+
+const addNew={
+    type:"List",
+    message:"Do you want to add Another Employee?",
+    name:"addMember",
+    choices:["yes","no"]
+}
+
+function addRole()
+{
+    inquirer.prompt([{
+            type:"list",
+            message:"Enter the employee's Role :",
+            name:"employeeChoice",
+            choices:["Manager", "Engineer", "Intern"]
+
+          }]).then((answer)=> {
+            if(answer.employeeChoice === "Manager" && managerCounter<1){
+                managerCounter++
+                inquirer.prompt(teamMembers.Manager).then((results) =>{
+                    const manager=new Manager(results.managerName,results.managerId,results.managerEmail,results.officeNumber)
+                    Team.push(manager);
+                    start();
+                })
+            }
+            else if(answer.employeeChoice==="Engineer") {
+                inquirer.prompt(teamMembers.Engineer).then((results)=>{
+                    const engineer=new Engineer(results.engineerName,results.engineerId,results.engineerEmail,results.Github)
+                    Team.push(engineer);
+                    start();
+                })
+            }
+            else if(answer.employeeChoice==="Intern") {
+                inquirer.prompt(teamMembers.Intern).then((results)=>{
+                    const intern=new Intern(results.internName,results.internId,results.internEmail,results.school)
+                    Team.push(intern);
+                    start();
+                })
+            }
+            else{
+                start();
+            }
+
+          }
+          )
+}
